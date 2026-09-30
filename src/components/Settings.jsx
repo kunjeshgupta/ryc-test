@@ -1,6 +1,7 @@
 import { useState, useRef } from 'react'
 import { getLogo, saveLogo, removeLogo } from '../utils/storage'
 import bundledLogo from '../assets/ryc-logo.png'
+import { COMPANY, BANK } from '../config'
 
 export default function Settings() {
   const [logo, setLogo]     = useState(() => getLogo() || bundledLogo)
@@ -72,21 +73,20 @@ export default function Settings() {
       <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4 flex flex-col gap-2">
         <h2 className="text-sm font-semibold text-gray-700 uppercase tracking-wide">Firm Details</h2>
         {[
-          ['Name',    'Rominder Yadav Cranes'],
-          ['GSTIN',   '06BHRPY6139D1ZT'],
-          ['Address', 'Yadav Complex NH-48, Near McDonalds, Manesar'],
-          ['City',    'GURGAON, HARYANA 122004'],
-          ['Mobile',  '9810086156, 8383001261'],
-          ['Email',   'raorominder2@gmail.com'],
-          ['Bank',    'HDFC – 50200060775879'],
-          ['IFSC',    'HDFC0000589'],
+          ['Name',    COMPANY.name],
+          ['GSTIN',   COMPANY.gstin],
+          ['Address', COMPANY.address],
+          ['City',    COMPANY.city],
+          ['Mobile',  COMPANY.phone],
+          ['Email',   COMPANY.email],
+          ['Bank',    `${BANK.branch} – ${BANK.accountNo}`],
+          ['IFSC',    BANK.ifsc],
         ].map(([k, v]) => (
           <div key={k} className="flex justify-between text-sm">
             <span className="text-gray-400 w-20 shrink-0">{k}</span>
             <span className="text-gray-800 text-right">{v}</span>
           </div>
         ))}
-        <p className="text-xs text-gray-400 mt-2">To change firm details, edit <code>src/config.js</code>.</p>
       </div>
     </div>
   )

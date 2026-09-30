@@ -29,6 +29,21 @@ jobs:
 
       - run: npm ci
       - run: npm run build
+        env:
+          APP_CONFIG_JSON: ${{ secrets.APP_CONFIG_JSON }}
+          CUSTOM_LOGO_BASE64: ${{ secrets.CUSTOM_LOGO_BASE64 }}
+          COMPANY_NAME: ${{ secrets.COMPANY_NAME }}
+          COMPANY_TAGLINE: ${{ secrets.COMPANY_TAGLINE }}
+          COMPANY_ADDRESS: ${{ secrets.COMPANY_ADDRESS }}
+          COMPANY_CITY: ${{ secrets.COMPANY_CITY }}
+          COMPANY_GSTIN: ${{ secrets.COMPANY_GSTIN }}
+          COMPANY_PHONE: ${{ secrets.COMPANY_PHONE }}
+          COMPANY_EMAIL: ${{ secrets.COMPANY_EMAIL }}
+          COMPANY_STATE_CODE: ${{ secrets.COMPANY_STATE_CODE }}
+          BANK_ACCOUNT_NAME: ${{ secrets.BANK_ACCOUNT_NAME }}
+          BANK_ACCOUNT_NO: ${{ secrets.BANK_ACCOUNT_NO }}
+          BANK_IFSC: ${{ secrets.BANK_IFSC }}
+          BANK_BRANCH: ${{ secrets.BANK_BRANCH }}
 
       - uses: actions/configure-pages@v4
 
